@@ -32,11 +32,24 @@ public class sorting {
             }
         }
     }
+    
+    static void insertion(int[] arr, int n){
+        for(int i = 0; i<=n-1; i++){
+            int j = i;
+            while(j>0 && arr[j]<arr[j-1]){
+                int temp = arr[j];
+                arr[j] = arr[j-1];
+                arr[j-1] = temp;
+                j--;
+            }
+        }
+    }
     public static void main(String[] args) {
-        int[] arr = { 11, 22, 10, 8, 23 };
+        int[] arr = { 5,4,3,2,1 };
         int n = arr.length;
         // selection(arr, n);
-        bubble(arr, n);
+        // bubble(arr, n);
+        insertion(arr, n);
         for (int i = 0; i < n; i++) {
             System.out.println(arr[i]);
         }
