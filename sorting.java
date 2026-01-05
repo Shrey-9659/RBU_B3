@@ -1,3 +1,6 @@
+import java.util.ArrayList;
+import java.util.List;
+
 public class sorting {
     static void swap(int[] arr, int min, int i){
             int temp = arr[min];
@@ -44,12 +47,14 @@ public class sorting {
             }
         }
     }
+    
+    
     public static void main(String[] args) {
         int[] arr = { 5,4,3,2,1 };
         int n = arr.length;
         // selection(arr, n);
         // bubble(arr, n);
-        insertion(arr, n);
+        // insertion(arr, n);
         for (int i = 0; i < n; i++) {
             System.out.println(arr[i]);
         }
