@@ -51,15 +51,70 @@ public void traverse(){
         System.out.print(temp.data + " -- ");
         temp = temp.next;
     }
-    System.out.print("null");
+    System.out.println("null");
 }
+public void deleteAtStart(){
+    if(head == null) return;
+    head = head.next;
+}
+public void deleteAtEnd(){
+    if(head == null || head.next == null){
+        head = null;
+        return;
+    }
+    Node temp = head;
+    while(temp.next.next != null){
+        temp = temp.next;
+    }
+    temp.next = null;
+}
+public void deleteValue(int data){
+    if(head.data == data){
+        head = head.next;
+        return;
+    }
+    Node temp = head;
+    while(temp.next.data != data && temp.next != null){
+        temp = temp.next;
+    }
+    if(temp.next != null){
+        temp.next = temp.next.next;
+    }
+}
+public boolean search(int data){
+    Node temp = head;
+    while(temp != null){
+        if(temp.data == data) return true;
+        temp = temp.next;
+    }
+    return false;
+}
+public void sort(){
+    Node curr, index;
+    int temp;
+
+    for (curr = head; curr != null; curr = curr.next) {
+        for (index = curr.next; index != null; index = index.next) {
+            if (curr.data > index.data) {
+                temp = curr.data;
+                curr.data = index.data;
+                index.data = temp;
+            }
+        }
+    }
+}
+
     public static void main(String[] args) {
         LL list = new LL();
-        list.insertAtEnd(5);
-        list.insertAtEnd(6);
-        list.insertAtEnd(7);
-        list.insertAtEnd(8);
+        list.insertAtEnd(56);
+        list.insertAtEnd(53);
+        list.insertAtEnd(52);
+        list.insertAtEnd(50);
         list.traverse();
+        list.sort();
+        // list.deleteValue(6);
+        list.traverse();
+        // System.out.println(list.search(6));
     }
     
 }
